@@ -22,6 +22,7 @@ class Matching(object):
         :return: Returns the matched items.
         """
         db = RadiusDB()
+        # If input type is property it will query the requirement database otherwise it will serach in property data base for possible matches.
         if input_type == "PROPERTY":
             resoverall = db._fetch_all_from_table(REQUIREMENT_DATA)
             df = pd.DataFrame(resoverall.fetchall())
@@ -37,12 +38,13 @@ class Matching(object):
         df5 = pd.concat([df, df1[['score']], df2[['score']], df3[['score']], df4[['score']]], sort=True).groupby(
             level=0).sum()
         print("Following are your query matches: \n")
+        # Removing all the items with less that 40% score
         print(df5[(df5['score'] >= 40)])
 
 
 if __name__ == '__main__':
     print('Matching algorithm....')
-    print("Enter the input type")
+    print("Enter the input type:(REQUIREMENT/PROPERTY)")
     input_type = input()
     if input_type == "REQUIREMENT":
         query_obj = prompt(REQUIREMENT_QUE)
