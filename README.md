@@ -20,3 +20,4 @@ Following files are present in the project:
 - User will always provide latitude and longitude.
 - User will always provide the min and max bedrooms/bathrooms.
 - User will specify the type of input they are entering.
+- Considered only full matches as requirement for partial match was not clear.

@@ -33,7 +33,7 @@ class Matching(object):
         df1 = Rules.price_rules(query_obj, df).assign(score=30)
         df2 = Rules.room_rules(query_obj, df, 'bedrooms').assign(score=20)
         df3 = Rules.room_rules(query_obj, df, 'bathrooms').assign(score=20)
-        df4 = Rules.distance_rules(query_obj, df).assign(score=20)
+        df4 = Rules.distance_rules(query_obj, df).assign(score=30)
         df5 = pd.concat([df, df1[['score']], df2[['score']], df3[['score']], df4[['score']]], sort=True).groupby(
             level=0).sum()
         print("Following are your query matches: \n")
