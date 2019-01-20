@@ -16,3 +16,7 @@ Following files are present in the project:
     `python matching.py` to run the main logic.
     
 
+#Assumptions:
+- User will always provide latitude and longitude.
+- User will always provide the min and max bedrooms/bathrooms.
+- User will specify the type of input they are entering.

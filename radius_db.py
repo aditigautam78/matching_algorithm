@@ -55,6 +55,11 @@ class RadiusDB(object):
         self.conn.commit()
 
     def _fetch_all_from_table(self, table_obj):
+        """
+
+        :param table_obj: Table object
+        :return: all the items of the table
+        """
         return self.c.execute("Select * from %s ;" % (table_obj.get('table_name')))
 
     def __exit__(self):

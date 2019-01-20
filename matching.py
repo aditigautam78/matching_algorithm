@@ -6,11 +6,21 @@ from PyInquirer import prompt
 
 
 class Matching(object):
+
     def __init__(self, input_type, query_obj={}):
+        """
+
+        :param input_type: The type of input user has entered. Can be REQUIREMNT or PROPERTY
+        :param query_obj: Answers to the questions asked.
+        """
         self.input = input_type
         self.query_obj = query_obj
 
     def matching(self):
+        """
+
+        :return: Returns the matched items.
+        """
         db = RadiusDB()
         if input_type == "PROPERTY":
             resoverall = db._fetch_all_from_table(REQUIREMENT_DATA)

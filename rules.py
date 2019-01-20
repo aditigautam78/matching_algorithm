@@ -4,6 +4,12 @@ from utils import haversine
 class Rules(object):
     @staticmethod
     def price_rules(query_obj, df):
+        """
+
+        :param query_obj: The parameters queried by user
+        :param df: Data frame
+        :return: Filtered df
+        """
         if 'min_price' in query_obj and 'max_price' in query_obj:
             return df[(df["price"] <= query_obj.get('max_price')) & (df["price"] >= query_obj.get('min_price'))]
         elif 'min_price' in query_obj:
@@ -21,6 +27,13 @@ class Rules(object):
 
     @staticmethod
     def room_rules(query_obj, df, room_name):
+        """
+
+        :param query_obj: Parameters
+        :param df: Data Frame
+        :param room_name: The type of room given by user
+        :return: Data frame filtered.
+        """
         min_range_text, max_range_text = ('min_number_of_%s' % room_name, 'max_number_of_%s' % room_name)
         room_text = "number_of_%s" % room_name
 
@@ -39,6 +52,12 @@ class Rules(object):
 
     @staticmethod
     def distance_rules(query_obj, df):
+        """
+
+        :param query_obj: LAtitude and longitude entered/
+        :param df:
+        :return: Filtered df according to lat and long
+        """
         if 'latitude' in query_obj and 'longitude' in query_obj:
             df['distance_in_miles'] = df.apply(
                 (lambda row: haversine(
