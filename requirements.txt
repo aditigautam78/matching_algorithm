@@ -9,7 +9,7 @@ checkbox-support==0.22
 Click==7.0
 command-not-found==0.3
 coverage==4.5.1
-cryptography==1.2.3
+cryptography==3.2
 DateTime==4.3
 defer==1.0.6
 dell-recovery==0.0.0
